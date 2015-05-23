@@ -62,19 +62,25 @@
     <script type="text/javascript">
         var element1_click=document.getElementById("close");
         var element2_click=document.getElementById("OPEN DIALOG");
+        var element3_click=document.getElementById("dialog-background");
+
         element1_click.addEventListener("click",function(){
-            console.log("emement1_click ok");
             var element1=document.getElementById("dialog");
             var element2=document.getElementById("dialog-background");
             element1.className="remove";
             element2.className="remove";
         });
         element2_click.addEventListener("click",function(){
-            console.log("emement2_click ok");
             var element1=document.getElementById("dialog");
             var element2=document.getElementById("dialog-background");
             element1.className="dialog";
             element2.className="dialog-background";
+        });
+        element3_click.addEventListener("click",function(){
+            var element1=document.getElementById("dialog");
+            var element2=document.getElementById("dialog-background");
+            element1.className="remove";
+            element2.className="remove";
         });
     </script>
 </body>
