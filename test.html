@@ -67,6 +67,11 @@
     </div>
     //-------------------------------------------------------------------------------------------------------------------------------------
     <script type="text/javascript">
+        //関数定義
+        click_event=function(){
+            var element1=document.getElementById("dialog");
+            var element2=document.getElementById("dialog-background");
+        }
         //変数定義-----------------------------------------------------------------------
         var element1_click=document.getElementById("close");
         var element2_click=document.getElementById("OPEN DIALOG");
@@ -75,22 +80,19 @@
         //クリック処理----------------------------------------------------------------------
         //closeボタンを押したとき
         element1_click.addEventListener("click",function(){
-            var element1=document.getElementById("dialog");
-            var element2=document.getElementById("dialog-background");
+            click_event();
             element1.className="remove";
             element2.className="remove";
         });
         //OPEN DIALOGボタン以外を押したとき
         element2_click.addEventListener("click",function(){
-            var element1=document.getElementById("dialog");
-            var element2=document.getElementById("dialog-background");
+            click_event();
             element1.className="dialog";
             element2.className="dialog-background";
         });
         //closeボタン以外の場所を押したとき
         element3_click.addEventListener("click",function(){
-            var element1=document.getElementById("dialog");
-            var element2=document.getElementById("dialog-background");
+            click_event();
             element1.className="remove";
             element2.className="remove";
         });
