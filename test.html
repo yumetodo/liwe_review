@@ -61,38 +61,30 @@
     </div>
     <script type="text/javascript">
         //関数定義
-        click_event=function(num){
-            console.log("click_event run");
-            var element1=document.getElementById("dialog");
-            var element2=document.getElementById("dialog-background");
-            if(num == 1){
-                element1.className="dialog";
-                element2.className="dialog-background";
-            }
-            if(num == 2){
-                element1.className="remove";
-                element2.className="remove";
-            }
+        click_close=function(){
+            var elementDialog=document.getElementById("dialog");
+            var elementDialogBackground=document.getElementById("dialog-background");
+            elementDialog.className="remove";
+            elementDialogBackground.className="remove";
         };
+        click_open=function(){
+            var elementDialog=document.getElementById("dialog");
+            var elementDialogBackground=document.getElementById("dialog-background");
+            elementDialog.className="dialog";
+            elementDialogBackground.className="dialog-background";
+        }
         //変数定義-----------------------------------------------------------------------
-        var element1_click=document.getElementById("close");
-        var element2_click=document.getElementById("OPEN DIALOG");
-        var element3_click=document.getElementById("dialog-background");
-        var num=0;
+        var element_close=document.getElementById("close");
+        var element_OPEN_DIALOG=document.getElementById("OPEN DIALOG");
+        var element_dialog_background=document.getElementById("dialog-background");
         //-------------------------------------------------------------------------------
         //クリック処理----------------------------------------------------------------------
         //closeボタンを押したとき
-        element1_click.addEventListener("click",function(){
-            click_event(2);
-        });
+        element_close.addEventListener("click",click_close);
         //OPEN DIALOGボタン以外を押したとき
-        element2_click.addEventListener("click",function(){
-            click_event(1);
-        });
+        element_OPEN_DIALOG.addEventListener("click",click_open);
         //closeボタン以外の場所を押したとき
-        element3_click.addEventListener("click",function(){
-            click_event(2);
-        });
+        element_dialog_background.addEventListener("click",click_close);
 
         //----------------------------------------------------------------------------------
     </script>
