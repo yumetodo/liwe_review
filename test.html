@@ -17,8 +17,6 @@
         border-radius: 6px 6px 6px 6px;
         left: 40%;
         top:150;
-
-
         background-color: white;
         padding: 10px 14px;
         width: 240px;
@@ -60,19 +58,24 @@
         </p>
     </div>
     <script type="text/javascript">
-        //関数定義
+        //関数定義----------------------------------------------------------------------
+        //ダイアログを閉じるとき
         click_close=function(){
             var elementDialog=document.getElementById("dialog");
             var elementDialogBackground=document.getElementById("dialog-background");
             elementDialog.className="remove";
             elementDialogBackground.className="remove";
         };
+        //ダイアログをオープンするとき
         click_open=function(){
+            //ダイアログに関する処理
             var elementDialog=document.getElementById("dialog");
             var elementDialogBackground=document.getElementById("dialog-background");
             elementDialog.className="dialog";
             elementDialogBackground.className="dialog-background";
-        }
+            //画像にスポットライトを当てる処理
+        };
+        //------------------------------------------------------------------------------
         //変数定義-----------------------------------------------------------------------
         var element_close=document.getElementById("close");
         var element_OPEN_DIALOG=document.getElementById("OPEN DIALOG");
