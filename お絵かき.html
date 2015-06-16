@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>お絵かき</title>
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+<script type="text/javascript">
+    //変数定義---------------------------------------------------
+    //ブラシの状態を保存
+    var Blush=false;
+    //canvasの定義
+    var element=document.getElementById("canvas");
+    var ctx=element.getContext('2d');
+    //マウスの座標(終点)
+    var mouseX,mouseY;
+    //マウスの座標（始点）
+    //----------------------------------------------------------
+
+    //関数定義---------------------------------------------------------
+    //マウスがクリック時に移動した時の関数---------------------------------
+    element.addEventListener("mousemove",function(event){
+        //現在位置をマウスの終点座標に代入
+        mouseX=event.pageX;
+        mouseY=event.pageY;
+        if(Blush){//クリックされていたら
+            //canvasに線を書く
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(mouseX,mouseY);
+            ctx.stroke();
+        }
+        //現在位置をマウスの始点座標に代入
+        x=mouseX;
+        y=mouseY;
+    });
+    //------------------------------------------------------------
+
+    //クリックされていたらBlushをtrueにする----------------------------------
+    document.addEventListener("mousedown",function(){
+        Blush=true;
+    });
+    //-------------------------------------------------------------
+
+    //クリックされていなかったらBlushをfalseにする------------------------------
+    document.addEventListener("mouseup",function(){
+        Blush=false;
+    });
+    //--------------------------------------------------------------
+    //---------------------------------------------------------------------
+</script>
+</body>
