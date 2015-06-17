@@ -26,6 +26,8 @@
         display:none;
     }
     .wrapper {
+        top:0px;
+        left: 0px;
         width: 800px;
         margin-left: auto;
         margin-right: auto;
@@ -36,7 +38,9 @@
     </style>
 </head>
 <body>
-    <div id="dialog-background" class="dialog-background"></div>
+    <div id="dialog-background" class="dialog-background">
+        <canvas id="cv" width="1000" height="1000"></canvas>
+    </div>
     <div id="dialog" class="dialog">
         <p>This is dialog</p>
         <input type="button" name="button" id="close" value="close dialog"/>
@@ -52,36 +56,61 @@
         <p>
             I decided to write this because I wanted to solidify my own knowledge of Haskell and because I thought I could help people new to Haskell learn it from my perspective. There are quite a few tutorials on Haskell floating around on the internet. When I was starting out in Haskell, I didn't learn from just one resource. The way I learned it was by reading several different tutorials and articles because each explained something in a different way than the other did. By going through several resources, I was able put together the pieces and it all just came falling into place. So this is an attempt at adding another useful resource for learning Haskell so you have a bigger chance of finding one you like.
         </p>
-        <img src="http://s3.amazonaws.com/lyah/bird.png" alt="bird" class="left" width="230" height="192">
+        <img src="http://s3.amazonaws.com/lyah/bird.png" alt="bird" class="left" width="230" height="192" id="imgBird">
         <p>
             This tutorial is aimed at people who have experience in imperative programming languages (C, C++, Java, Python &hellip;) but haven't programmed in a functional language before (Haskell, ML, OCaml &hellip;). Although I bet that even if you don't have any significant programming experience, a smart person such as yourself will be able to follow along and learn Haskell.
         </p>
     </div>
     <script type="text/javascript">
         //関数定義----------------------------------------------------------------------
+
         //ダイアログを閉じるとき
         click_close=function(){
+            console.log("close good");
             var elementDialog=document.getElementById("dialog");
             var elementDialogBackground=document.getElementById("dialog-background");
             elementDialog.className="remove";
             elementDialogBackground.className="remove";
         };
+
         //ダイアログをオープンするとき
         click_open=function(){
+            console.log("open good");
             //ダイアログに関する処理
             var elementDialog=document.getElementById("dialog");
             var elementDialogBackground=document.getElementById("dialog-background");
             elementDialog.className="dialog";
             elementDialogBackground.className="dialog-background";
             //画像にスポットライトを当てる処理
+            ctx.beginPath();
+            ctx.arc(img_right-(img_right-img_left)/2, img_bottom-(img_bottom-img_top)/2, imgBird.width/2, 0, Math.PI*2, false);
+            ctx.fillStyle='rgb(255,255,255)';//白
+            ctx.fill();
         };
+
         //------------------------------------------------------------------------------
+
         //変数定義-----------------------------------------------------------------------
+
+        //idから要素を取得
         var element_close=document.getElementById("close");
         var element_OPEN_DIALOG=document.getElementById("OPEN DIALOG");
         var element_dialog_background=document.getElementById("dialog-background");
-        //-------------------------------------------------------------------------------
+        var element_img=document.getElementById("imgBird");
+        var imgCoord=element_img.getBoundingClientRect();
+        var canvas=document.getElementById("cv");
+        var ctx=canvas.getContext('2d');
+
+        //画像の座標を取得
+        var img_top=imgCoord.top;
+        var img_bottom=imgCoord.bottom;
+        var img_right=imgCoord.right;
+        var img_left=imgCoord.left;
+        
+        //------------------------------------------------------------------------------
+
         //クリック処理----------------------------------------------------------------------
+        
         //closeボタンを押したとき
         element_close.addEventListener("click",click_close);
         //OPEN DIALOGボタン以外を押したとき

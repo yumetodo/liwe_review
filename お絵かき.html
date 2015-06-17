@@ -2,8 +2,18 @@
 <html>
 <meta charset="utf-8">
 <title>お絵かき</title>
+<style type="text/css">
+    .button{
+        display: inline-block;
+    }
+</style>
 <body>
-    <canvas id="canvas" width="600" height="600"></canvas>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <br/>
+    <input type="button" class="button" id="btnRed" value="red" />
+    <input type="button" class="button" id="btnBlack" value="black" />
+    <input type="button" class="button" id="btnBlue" value="blue" />
+    <input type="button" class="button" id="btnClear" value="clear" />
 <script type="text/javascript">
     //変数定義---------------------------------------------------
     //ブラシの状態を保存
@@ -14,6 +24,12 @@
     //マウスの座標(終点)
     var mouseX,mouseY;
     //マウスの座標（始点）
+    var x,y;
+    //buttonの要素を取得
+    var elementRed=document.getElementById("btnRed");
+    var elementBlack=document.getElementById("btnBlack");
+    var elementBlue=document.getElementById("btnBlue");
+    var elementClear=document.getElementById("btnClear");
     //----------------------------------------------------------
 
     //関数定義---------------------------------------------------------
@@ -46,6 +62,31 @@
         Blush=false;
     });
     //--------------------------------------------------------------
+
+    //redボタンが押された時の処理------------------------------------------
+    elementRed.addEventListener("click",function(){
+          ctx.strokeStyle = 'rgb(255, 0, 0)'; // 赤
+    });
+    //--------------------------------------------------------------
+
+    //blackボタンが押された時の処理----------------------------------------
+    elementBlack.addEventListener("click",function(){
+        ctx.strokeStyle = 'rgb(0, 0, 0)'; // 黒
+    });
+    //---------------------------------------------------------------
+
+    //blueボタンが押された時の処理-----------------------------------------
+    elementBlue.addEventListener("click",function(){
+        ctx.strokeStyle = 'rgb(0, 0, 255)'; // 青
+    });
+    //---------------------------------------------------------------
+
+    //clearボタンが押された時の処理----------------------------------------
+    elementClear.addEventListener("click",function(){
+        ctx.clearRect(0, 0, 500, 500);
+    });
+    //---------------------------------------------------------------
+
     //---------------------------------------------------------------------
 </script>
 </body>
