@@ -1,20 +1,26 @@
-bird_canvas_c = function(id){
+bird_canvas_c = function(id, opacity){
     console.log("constructor of bird_canvas_c are called.")
     this.id_ = "#" + id;
-    $(this.id_).drawImage({
+    var circle = {
+        strokeStyle: "#FFFFFF",
+        strokeWidth: 1,
+        fromCenter: false,
+        radius: 115,
+        layer: true,
+    };
+    var circle_environmental_light = $.extend(true, {}, circle);
+    circle_environmental_light.fillStyle = "#FFFFFF";
+    circle_environmental_light.name = "spotlight_env";
+    var circle_direct_light = $.extend(true, {}, circle);
+    circle_direct_light.fillStyle = "rgba(255, 255, 255, " + opacity + ")";
+    circle_direct_light.name = "spotlight";
+
+    $(this.id_).drawArc(circle_environmental_light).drawImage({
         source: 'http://s3.amazonaws.com/lyah/bird.png',
         layer: true,
         name: "backimg",
-        fromCenter: true
-    }).drawArc({
-        fillStyle: "rgba(255, 255, 255, 0.6)",
-        strokeStyle: "#FFFFFF",
-        strokeWidth: 1,
-        fromCenter: true,
-        radius: 125
-        layer: true,
-        name: "spotlight"
-    }).drawLayers();
+        fromCenter: false
+    }).drawArc(circle_direct_light);
     this.layer_spotlinght_ = $(this.id_).getLayer("spotlight");
 };
 bird_canvas_c.prototype.draw = function(){
@@ -29,7 +35,8 @@ bird_canvas_c.prototype.hide = function(){
 };
 
 $(function(){
-    var bird_canvas = new bird_canvas_c("bird_canvas");
+    var bird_canvas = new bird_canvas_c("bird_canvas", 0.5);
+    bird_canvas.hide();//スポットライトは表示しない
     $("#dialog").dialog({
         autoOpen: false,
         modal: true,

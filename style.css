@@ -19,6 +19,14 @@ body {
 p {
 	font-size: 14px;
 }
+#bird_canvas {
+	position: relative;
+	z-index: 110;/* jQuery UIの暗転のz-index(.ui-widget-overlay)が100なのでそれ以上を指定 */
+}
+.ui-widget-overlay{
+	background-color: rgba(0, 0, 0, 0.5);
+	background-image: none;
+}
 .arrange_hirizon div.text {
 	vertical-align: top;
 	padding: 0px 5px;
