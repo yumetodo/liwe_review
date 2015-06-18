@@ -1,5 +1,5 @@
 bird_canvas_c = function(id, opacity){
-    console.log("constructor of bird_canvas_c are called.")
+    console.log("constructor of bird_canvas_c are called.");
     this.id_ = "#" + id;
     var circle = {
         strokeStyle: "#FFFFFF",
