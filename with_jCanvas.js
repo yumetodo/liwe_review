@@ -24,12 +24,12 @@ bird_canvas_c = function(id, opacity){
     this.layer_spotlinght_ = $(this.id_).getLayer("spotlight");
 };
 bird_canvas_c.prototype.draw = function(){
-    console.log("function bird_canvas_c::draw are called.")
+    console.log("function bird_canvas_c::draw are called.");
     this.layer_spotlinght_.visible = true;
     $(this.id_).drawLayers();
 };
 bird_canvas_c.prototype.hide = function(){
-    console.log("function bird_canvas_c::hide are called.")
+    console.log("function bird_canvas_c::hide are called.");
     this.layer_spotlinght_.visible = false;
     $(this.id_).drawLayers();
 };

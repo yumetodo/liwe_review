@@ -1,4 +1,4 @@
-@charset "utf-8"
+@charset "utf-8";
 .dialog {
     position: absolute;
     border-radius: 6px 6px 6px 6px;
@@ -11,7 +11,7 @@
 }
 section.wrapper {
     width: 800px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 body {
 	font-family: Inconsolata, Ricty, Consolas, "Source Code Pro", "Anonymous Pro", "Ubuntu Mono", "Dejavu Sans Mono", "Liberation Mono", Menlo, Courier, monospace;
@@ -29,7 +29,7 @@ p {
 }
 .arrange_hirizon div.text {
 	vertical-align: top;
-	padding: 0px 5px;
+	padding: 0 5px;
 }
 .arrange_hirizon div{
 	display: table-cell;
